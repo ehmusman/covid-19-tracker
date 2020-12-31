@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -22,12 +23,11 @@ const useStyles = makeStyles({
 });
 
 function CardComponent({ heading, numbers, identity, date }) {
-    console.log(heading, numbers, date, identity)
     const classes = useStyles();
 
     return (
-        <div className={identity}>
-            <Card className={classes.root} xs={12} md={12} variant="outlined">
+        <Grid className={identity} item md={4} sm={12}>
+            <Card className={classes.root} variant="outlined">
                 <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         {heading}
@@ -49,7 +49,7 @@ function CardComponent({ heading, numbers, identity, date }) {
 
                 </CardContent>
             </Card>
-        </div>
+        </Grid>
     );
 }
 export default CardComponent;

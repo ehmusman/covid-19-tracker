@@ -4,8 +4,8 @@ body {
   box-sizing: border-box;
 }
 .container {
-  max-width: 900px;
-  margin: 20px auto;
+  max-width: 900px !important;
+  margin: 20px auto !important;
 }
 .card-container {
   display: flex;
@@ -13,24 +13,24 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-.infected {
+.infected .MuiPaper-outlined {
   border-bottom: 10px solid rgba(0, 0, 255, 0.5);
 }
-.infected:hover {
+.infected .MuiPaper-outlined:hover {
   border-top: 10px solid rgba(0, 0, 255, 0.5);
 }
 
-.recovered {
+.recovered .MuiPaper-outlined {
   border-bottom: 10px solid rgba(0, 255, 0, 0.5);
 }
-.recovered:hover {
+.recovered .MuiPaper-outlined:hover {
   border-top: 10px solid rgba(0, 255, 0, 0.5);
 }
 
-.death {
+.death .MuiPaper-outlined {
   border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
 
-.death:hover {
+.death .MuiPaper-outlined:hover {
   border-top: 10px solid rgba(255, 0, 0, 0.5);
 }

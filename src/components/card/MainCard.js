@@ -1,9 +1,10 @@
+import { Grid } from '@material-ui/core'
 import React from 'react'
 import CardComponent from './CardComponent'
 
 function MainCard() {
     return (
-        <div className='card-container container'>
+        <Grid container spacing={3} className='card-container container'>
             <CardComponent
                 heading='Infected'
                 numbers='12345'
@@ -22,7 +23,7 @@ function MainCard() {
                 date='date'
                 identity='death'
             />
-        </div>
+        </Grid >
     )
 }
 export default MainCard
