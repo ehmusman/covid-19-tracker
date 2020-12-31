@@ -1,0 +1,36 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.infected {
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}
+.infected:hover {
+  border-top: 10px solid rgba(0, 0, 255, 0.5);
+}
+
+.recovered {
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+.recovered:hover {
+  border-top: 10px solid rgba(0, 255, 0, 0.5);
+}
+
+.death {
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+.death:hover {
+  border-top: 10px solid rgba(255, 0, 0, 0.5);
+}

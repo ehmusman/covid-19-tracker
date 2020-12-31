@@ -1,10 +1,13 @@
-import React from 'react'
+// import { Card } from '@material-ui/core'
 
+import React from 'react'
+import MainCard from './components/card/MainCard'
+import './App.css'
 function App() {
     return (
-        <div>
-            hello covid
-        </div>
+        <>
+            <MainCard />
+        </>
     )
 }
 
