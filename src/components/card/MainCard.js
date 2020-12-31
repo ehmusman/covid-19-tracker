@@ -1,8 +1,13 @@
 import { Grid } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
+import CovidContext from '../../context/covidContext'
 import CardComponent from './CardComponent'
 
 function MainCard() {
+    const { totalCases } = useContext(CovidContext)
+    if (totalCases.length !== 0) {
+        console.log(totalCases)
+    } else { console.log(2345) }
     return (
         <Grid container spacing={3} className='card-container container'>
             <CardComponent

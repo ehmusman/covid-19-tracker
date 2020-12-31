@@ -1,27 +1,13 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import axios from 'axios';
 
-function Api() {
-    const url = 'https://covid19.mathdro.id/api'
-    useEffect(() => {
-        const mainApi = async () => {
-            try {
-                const { data } = await axios.get(url)
-                console.log(data)
-                console.log(data.confirmed.value)
-                console.log(data.recovered.value)
-                console.log(data.deaths.value)
-            } catch {
+const url = 'https://covid19.mathdro.id/api'
 
-            }
-        }
-        mainApi()
-    }, [])
-    return (
-        <div>
+export const fetchData = async () => {
+    try {
+        const { data } = await axios.get(url)
+        return [data.confirmed.value, data.deaths.value, data.recovered.value, data.lastUpdate]
 
-        </div>
-    )
+    } catch {
+
+    }
 }
-
-export default Api

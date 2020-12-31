@@ -1,15 +1,16 @@
-// import { Card } from '@material-ui/core'
 
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import MainCard from './components/card/MainCard'
 import './App.css'
-import Api from './components/api/Api'
+import CovidState from './context/CovidState'
+import ApiData from './ApiData'
 function App() {
+
     return (
-        <>
+        <CovidState>
             <MainCard />
-            <Api />
-        </>
+            <ApiData />
+        </CovidState>
     )
 }
 
