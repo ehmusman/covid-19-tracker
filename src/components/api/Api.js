@@ -10,3 +10,11 @@ export const fetchData = async () => {
 
     }
 }
+export const getAllCountriesData = async () => {
+    try {
+        const { data } = await axios.get(`${url}/countries`)
+        console.log(data)
+    } catch {
+
+    }
+}

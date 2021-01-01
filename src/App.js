@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import MainCard from './components/card/MainCard'
 import './App.css'
-import { fetchData } from './components/api/Api'
+import { fetchData, getAllCountriesData } from './components/api/Api'
 
 class App extends Component {
     state = {
