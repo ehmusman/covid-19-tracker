@@ -1,17 +1,29 @@
 
-import React, { useEffect, useContext } from 'react'
+import React, { Component } from 'react'
 import MainCard from './components/card/MainCard'
 import './App.css'
-import CovidState from './context/CovidState'
-import ApiData from './ApiData'
-function App() {
+import { fetchData } from './components/api/Api'
 
-    return (
-        <CovidState>
-            <MainCard />
-            <ApiData />
-        </CovidState>
-    )
+class App extends Component {
+    state = {
+        data: []
+    }
+    async componentDidMount() {
+        const data = await fetchData()
+        this.setState({ data: data })
+    }
+
+    render() {
+        const { data } = this.state;
+        // console.log(data)
+        return (
+            <>
+                <MainCard
+                    data={data}
+                />
+            </>
+        )
+
+    }
 }
-
 export default App
