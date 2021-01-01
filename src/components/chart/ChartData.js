@@ -55,7 +55,7 @@ function ChartData() {
             },
             legend: {
                 display: true,
-                position: 'right', // top, bottom ,left, right
+                position: 'top', // top, bottom ,left, right
                 labels: {
                     fontColor: '#000'
                 }
