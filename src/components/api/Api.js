@@ -12,8 +12,13 @@ export const fetchData = async () => {
 }
 export const getAllCountriesData = async () => {
     try {
-        const { data } = await axios.get(`${url}/countries`)
-        console.log(data)
+        const { data } = await axios.get(`${url}/daily`)
+        const modefiedData = {
+            confirmed: data.map(total => total.confirmed.total),
+            deaths: data.map(total => total.deaths.total),
+            date: data.map(total => total.reportDate)
+        }
+        return modefiedData
     } catch {
 
     }

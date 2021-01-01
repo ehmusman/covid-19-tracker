@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
+import CountUp from 'react-countup';
 
 const useStyles = makeStyles({
     root: {
@@ -33,7 +34,12 @@ function CardComponent({ heading, numbers, identity, date }) {
                         {heading}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {numbers}
+                        <CountUp
+                            start={0}
+                            end={numbers}
+                            duration={2}
+                            separator=','
+                        />
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
                         {date}

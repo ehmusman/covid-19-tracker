@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import MainCard from './components/card/MainCard'
 import './App.css'
 import { fetchData, getAllCountriesData } from './components/api/Api'
+import ChartData from './components/chart/ChartData'
 
 class App extends Component {
     state = {
@@ -21,6 +22,7 @@ class App extends Component {
                 <MainCard
                     data={data}
                 />
+                <ChartData />
             </>
         )
 
