@@ -10,7 +10,6 @@ function ChartData({ country }) {
     const [chartOptions, setChartOptions] = useState({})
     const [load, setLoad] = useState(true)
     const [data, setData] = useState({})
-    const [countryData, setCountryData] = useState({})
     useEffect(() => {
         const totalDailyData = async () => {
             const data = await fetchDailyData()
@@ -20,21 +19,9 @@ function ChartData({ country }) {
             getChartData();
             getChartOptions();
         }
-        const getCountryData = async () => {
-            const [confirmed, recovered, deaths, lastUpdate] = await fetchData(country)
-            setCountryData({
-                confirmed: confirmed.value,
-                recovered: recovered.value,
-                deaths: deaths.value,
-                lastUpdate
-            })
-            setLoad(false)
-        }
-        if (country) {
-            getCountryData()
-        } else {
-            totalDailyData()// eslint-disable-next-line react-hooks/exhaustive-deps
-        }
+
+        totalDailyData()// eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [load || country])
     const getChartData = () => {
         setChartData({

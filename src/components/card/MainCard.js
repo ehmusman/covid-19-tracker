@@ -25,7 +25,7 @@ function MainCard(props) {
             <CardComponent
                 heading='Deaths'
                 numbers={deaths.value}
-                date={lastUpdate}
+                date={new Date(lastUpdate).toDateString()}
                 identity='death'
             />
         </Grid >

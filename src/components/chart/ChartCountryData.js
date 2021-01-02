@@ -21,13 +21,14 @@ function ChartCountryData({ country }) {
                 lastUpdate
             })
             setLoad(false)
-            getBarChartData();// eslint-disable-next-line react-hooks/exhaustive-deps
-            getBarChartOptions();// eslint-disable-next-line react-hooks/exhaustive-deps
+            getBarChartData();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            getBarChartOptions();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }
         getCountryData()// eslint-disable-next-line react-hooks/exhaustive-deps
 
-    }, [load || country])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [load || country])// eslint-disable-next-line react-hooks/exhaustive-deps
 
     const getBarChartData = () => {
         setChartData({
