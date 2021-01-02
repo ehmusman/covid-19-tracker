@@ -80,6 +80,8 @@ function ChartData({ country }) {
         <Grid container spacing={3} className='card-container container'>
             <Grid item lg={12} md={12} sm={12}>
                 <Line
+                    width={600} height={250}
+                    style={{ position: 'relative', height: '40vh', width: '80vw' }}
                     data={chartData}
                     options={chartOptions}
                 />

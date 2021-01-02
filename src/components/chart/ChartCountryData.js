@@ -2,7 +2,8 @@
 
 import { Grid } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
-import { Bar } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
+
 import { fetchData } from '../api/Api'
 
 function ChartCountryData({ country }) {
@@ -22,20 +23,21 @@ function ChartCountryData({ country }) {
             })
             setLoad(false)
             getBarChartData();
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+            // eslint-disable-next-line 
             getBarChartOptions();
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+            // eslint-disable-next-line 
         }
-        getCountryData()// eslint-disable-next-line react-hooks/exhaustive-deps
+        getCountryData()
+        // eslint-disable-next-line
 
-    }, [load || country || setCountryData])// eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }, [load || country || setCountryData])
+    // eslint-disable-next-line
     const getBarChartData = () => {
         setChartData({
             labels: ["Confirmed", "Recovered", 'Deaths'],
             datasets: [
                 {
-                    label: 'Confirmed Cases',
+
                     data: [countryData.confirmed, countryData.recovered, countryData.deaths],
                     backgroundColor: ['rgba(0,0,255,.6)', 'rgba(0,255,0,.6)', 'rgba(255,0,0,.6)'],
                     borderWidth: 1,
@@ -54,7 +56,7 @@ function ChartCountryData({ country }) {
                 fontSize: 25
             },
             legend: {
-                display: true,
+                display: false,
                 position: 'top', // top, bottom ,left, right
                 labels: {
                     fontColor: '#000'
@@ -66,7 +68,8 @@ function ChartCountryData({ country }) {
                     right: 0,
                     top: 0,
                     bottom: 0
-                }
+                },
+                width: '100%'
             },
             tooltips: {
                 enabled: true // true, false
@@ -77,7 +80,9 @@ function ChartCountryData({ country }) {
     return (
         <Grid container spacing={3} className='card-container container'>
             <Grid item lg={12} md={12} sm={12}>
-                <Bar
+                <Pie
+                    style={{ position: 'relative', height: '40vh', width: '80vw' }}
+                    width={600} height={250}
                     data={chartData}
                     options={chartOptions}
                 />

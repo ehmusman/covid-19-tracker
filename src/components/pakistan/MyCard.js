@@ -31,11 +31,14 @@ function MyCard({
         <Grid item md={4} sm={12} className={classes.root} >
             <Card variant='outlined'>
                 <CardContent>
-                    <Typography color="textPrimary" variant='h6' component='p'>
-                        {title} <ArrowDropDownIcon style={{ fontSize: '50px', cursor: 'pointer' }}
+                    <div style={{ display: 'flex', alignContent: 'center' }}>
+                        <Typography color="textPrimary" variant='h6' component='p'>
+                            {title}
+                        </Typography>
+                        <ArrowDropDownIcon style={{ fontSize: '50px', cursor: 'pointer' }}
                             onClick={() => setShowContent(!showContent)}
                         />
-                    </Typography>
+                    </div>
                     {showContent ? (
                         <>
                             <Typography color='textSecondary' variant="h6" component="p">
