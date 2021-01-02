@@ -3,7 +3,7 @@
 import { Grid } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
-import { fetchDailyData, fetchData } from '../api/Api'
+import { fetchDailyData } from '../api/Api'
 
 function ChartData({ country }) {
     const [chartData, setChartData] = useState({})

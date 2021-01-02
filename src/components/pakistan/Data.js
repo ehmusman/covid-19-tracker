@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 import { fetchingPakistaniStatics } from '../api/Api'
