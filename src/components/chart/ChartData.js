@@ -2,25 +2,27 @@
 
 import { Grid } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
-import { getDailyData } from '../api/Api'
+import { fetchDailyData } from '../api/Api'
 import ChartComponent from './ChartComponent'
 
-function ChartData() {
+function ChartData({ country }) {
     const [chartData, setChartData] = useState({})
     const [chartOptions, setChartOptions] = useState({})
     const [load, setLoad] = useState(true)
     const [data, setData] = useState({})
-
     useEffect(() => {
-        const allCountriesData = async () => {
-            const data = await getDailyData()
+        const totalDailyData = async () => {
+            const data = await fetchDailyData()
             setData(data)
             setLoad(false)
             getChartData();
             getChartOptions();
         }
-        allCountriesData()// eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [load])
+
+        totalDailyData()// eslint-disable-next-line react-hooks/exhaustive-deps
+
+    }, [load || country])
+
     const getChartData = () => {
         setChartData({
             labels: data.date,

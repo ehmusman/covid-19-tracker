@@ -3,12 +3,13 @@ import Select from '@material-ui/core/Select';
 import { fetchAllCountries } from '../api/Api'
 import React, { useState, useEffect } from 'react'
 
-function SelectData() {
-
+function SelectData({ selectCountry }) {
     const [value, setValue] = useState('')
     const [countriesData, setCountriesData] = useState([])
+
     const handleChange = (e) => {
         setValue(e.target.value)
+        selectCountry(e.target.value)
     }
     useEffect(() => {
         const getAllCountriesData = async () => {
