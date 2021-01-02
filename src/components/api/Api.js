@@ -10,7 +10,7 @@ export const fetchData = async () => {
 
     }
 }
-export const getAllCountriesData = async () => {
+export const getDailyData = async () => {
     try {
         const { data } = await axios.get(`${url}/daily`)
         const modefiedData = {
@@ -19,6 +19,19 @@ export const getAllCountriesData = async () => {
             date: data.map(total => total.reportDate)
         }
         return modefiedData
+    } catch {
+
+    }
+}
+export const fetchAllCountries = async () => {
+    try {
+        const { data } = await axios.get(`${url}/countries`)
+        const modefiedData = {
+            countryNames: data.countries.map(country => country.name)
+        }
+        // console.log(modefiedData)
+        // console.log(data[0])
+        return modefiedData.countryNames
     } catch {
 
     }

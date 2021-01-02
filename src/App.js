@@ -4,6 +4,7 @@ import MainCard from './components/card/MainCard'
 import './App.css'
 import { fetchData, getAllCountriesData } from './components/api/Api'
 import ChartData from './components/chart/ChartData'
+import SelectData from './components/countriesSelector/SelectData'
 
 class App extends Component {
     state = {
@@ -22,6 +23,7 @@ class App extends Component {
                 <MainCard
                     data={data}
                 />
+                <SelectData />
                 <ChartData />
             </>
         )

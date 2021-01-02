@@ -2,7 +2,7 @@
 
 import { Grid } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
-import { getAllCountriesData } from '../api/Api'
+import { getDailyData } from '../api/Api'
 import ChartComponent from './ChartComponent'
 
 function ChartData() {
@@ -13,7 +13,7 @@ function ChartData() {
 
     useEffect(() => {
         const allCountriesData = async () => {
-            const data = await getAllCountriesData()
+            const data = await getDailyData()
             setData(data)
             setLoad(false)
             getChartData();
