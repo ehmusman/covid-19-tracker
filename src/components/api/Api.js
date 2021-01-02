@@ -33,8 +33,6 @@ export const fetchAllCountries = async () => {
         const modefiedData = {
             countryNames: data.countries.map(country => country.name)
         }
-        // console.log(modefiedData)
-        // console.log(data[0])
         return modefiedData.countryNames
     } catch {
 

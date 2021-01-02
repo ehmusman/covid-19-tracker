@@ -5,6 +5,7 @@ import './App.css'
 import { fetchData } from './components/api/Api'
 import ChartData from './components/chart/ChartData'
 import SelectData from './components/countriesSelector/SelectData'
+import ChartCountryData from './components/chart/ChartCountryData'
 
 class App extends Component {
     state = {
@@ -33,7 +34,17 @@ class App extends Component {
                 />
                 <SelectData
                     selectCountry={this.selectCountry} />
-                <ChartData country={country} />
+                {country ? (
+                    <ChartCountryData
+                        country={country}
+                    />
+                ) : (
+                        <ChartData
+                            country={country}
+                            CountryData={data}
+                        />
+                    )}
+
             </>
         )
 

@@ -10,6 +10,9 @@ body {
 .MuiFormControl-root {
   width: 100%;
 }
+.MuiGrid-root {
+  margin: 0px 10px;
+}
 .card-container {
   display: flex;
   flex-direction: row;

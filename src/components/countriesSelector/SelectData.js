@@ -1,14 +1,12 @@
 import { FormControl, InputLabel } from '@material-ui/core'
-import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 import { fetchAllCountries } from '../api/Api'
 import React, { useState, useEffect } from 'react'
 
 function SelectData({ selectCountry }) {
-    const [value, setValue] = useState('')
     const [countriesData, setCountriesData] = useState([])
 
     const handleChange = (e) => {
-        setValue(e.target.value)
         selectCountry(e.target.value)
     }
     useEffect(() => {
@@ -21,20 +19,21 @@ function SelectData({ selectCountry }) {
     return (
         <div className='container'>
             <FormControl variant="outlined" >
-                <InputLabel htmlFor="outlined-age-native-simple">Select City</InputLabel>
-                <Select
-                    native
-                    value={value}
+                <InputLabel htmlFor="outlined-age-native-simple">Select Country
+                </InputLabel>
+                <NativeSelect
+
                     onChange={handleChange}
                     label="Select Country"
                 >
                     <option aria-label="None" value="" />
+                    <option value="">Global</option>
                     {countriesData.length !== 0 ? (
                         countriesData.map(country => (
                             <option key={country} value={country}>{country}</option>
                         ))
                     ) : null}
-                </Select>
+                </NativeSelect>
             </FormControl>
         </div>
     )

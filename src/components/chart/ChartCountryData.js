@@ -2,26 +2,19 @@
 
 import { Grid } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
-import { Line } from 'react-chartjs-2'
-import { fetchDailyData, fetchData } from '../api/Api'
+import { Bar } from 'react-chartjs-2'
+import { fetchData } from '../api/Api'
 
-function ChartData({ country }) {
+function ChartCountryData({ country }) {
+    // console.log(country)
     const [chartData, setChartData] = useState({})
     const [chartOptions, setChartOptions] = useState({})
     const [load, setLoad] = useState(true)
-    const [data, setData] = useState({})
     const [countryData, setCountryData] = useState({})
     useEffect(() => {
-        const totalDailyData = async () => {
-            const data = await fetchDailyData()
-            setData(data)
-            setLoad(false)
-
-            getChartData();
-            getChartOptions();
-        }
         const getCountryData = async () => {
             const [confirmed, recovered, deaths, lastUpdate] = await fetchData(country)
+            // console.log(confirmed, recovered, deaths, lastUpdate)
             setCountryData({
                 confirmed: confirmed.value,
                 recovered: recovered.value,
@@ -29,43 +22,34 @@ function ChartData({ country }) {
                 lastUpdate
             })
             setLoad(false)
+            getBarChartData();
+            getBarChartOptions();
         }
-        if (country) {
-            getCountryData()
-        } else {
-            totalDailyData()// eslint-disable-next-line react-hooks/exhaustive-deps
-        }
+        getCountryData()
+
     }, [load || country])
-    const getChartData = () => {
+
+    const getBarChartData = () => {
         setChartData({
-            labels: data.date,
+            labels: ["Confirmed", "Recovered", 'Deaths'],
             datasets: [
                 {
                     label: 'Confirmed Cases',
-                    data: data.confirmed,
-                    backgroundColor: 'rgba(0,0,255,.6)',
-                    borderWidth: 2,
-                    borderColor: "#00f",
-                    hoverBorderWidth: 3,
-                    hoverBorderColor: "#000"
-                },
-                {
-                    label: 'Confirmed Deaths',
-                    data: data.deaths,
-                    backgroundColor: 'rgba(255,0,0,.6)',
-                    borderWidth: 2,
-                    borderColor: "#f00",
+                    data: [countryData.confirmed, countryData.recovered, countryData.deaths],
+                    backgroundColor: ['rgba(0,0,255,.6)', 'rgba(0,255,0,.6)', 'rgba(255,0,0,.6)'],
+                    borderWidth: 1,
+                    borderColor: "#000",
                     hoverBorderWidth: 3,
                     hoverBorderColor: "#000"
                 }
             ]
         })
     }
-    const getChartOptions = () => {
+    const getBarChartOptions = () => {
         setChartOptions({
             title: {
                 display: true,
-                text: 'Daily Corona Update',
+                text: `Latest Update About ${country}`,
                 fontSize: 25
             },
             legend: {
@@ -77,7 +61,7 @@ function ChartData({ country }) {
             },
             layout: {
                 padding: {
-                    left: 150,
+                    left: 0,
                     right: 0,
                     top: 0,
                     bottom: 0
@@ -92,7 +76,7 @@ function ChartData({ country }) {
     return (
         <Grid container spacing={3} className='card-container container'>
             <Grid item lg={12} md={12} sm={12}>
-                <Line
+                <Bar
                     data={chartData}
                     options={chartOptions}
                 />
@@ -102,4 +86,4 @@ function ChartData({ country }) {
     )
 }
 
-export default ChartData
+export default ChartCountryData
