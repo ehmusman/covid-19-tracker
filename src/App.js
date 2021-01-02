@@ -47,11 +47,13 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'; class App exte
                         >
                             Statics of Pakistan
                     </Typography>
-                        <ArrowDropDownIcon style={{ fontSize: '50px', cursor: 'pointer' }} onClick={this.onClick} />
+                        <ArrowDropDownIcon style={{ fontSize: '50px', cursor: 'pointer' }} onClick={() => this.setState({
+                            showContent: !this.state.showContent
+                        })} />
                     </div>
                     <hr />
                     {showContent ? <Data /> : null}
-                    <Data />
+
                 </div>
                 <MainCard
                     data={data}
