@@ -38,3 +38,19 @@ export const fetchAllCountries = async () => {
 
     }
 }
+
+export const fetchingPakistaniStatics = async () => {
+    try {
+        const { data } = await axios.get(`${url}/confirmed`)
+        const modefiedData = {
+            belovedCountry: data.filter(country => country.countryRegion === 'Pakistan')
+        }
+        // console.log(data)
+        return {
+            pakistan: modefiedData.belovedCountry
+        }
+        // console.log(modefiedData)
+    } catch (error) {
+        console.log(error)
+    }
+}

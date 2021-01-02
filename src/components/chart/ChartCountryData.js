@@ -6,7 +6,6 @@ import { Bar } from 'react-chartjs-2'
 import { fetchData } from '../api/Api'
 
 function ChartCountryData({ country }) {
-    // console.log(country)
     const [chartData, setChartData] = useState({})
     const [chartOptions, setChartOptions] = useState({})
     const [load, setLoad] = useState(true)
@@ -14,7 +13,7 @@ function ChartCountryData({ country }) {
     useEffect(() => {
         const getCountryData = async () => {
             const [confirmed, recovered, deaths, lastUpdate] = await fetchData(country)
-            // console.log(confirmed, recovered, deaths, lastUpdate)
+
             setCountryData({
                 confirmed: confirmed.value,
                 recovered: recovered.value,
@@ -22,12 +21,13 @@ function ChartCountryData({ country }) {
                 lastUpdate
             })
             setLoad(false)
-            getBarChartData();
-            getBarChartOptions();
+            getBarChartData();// eslint-disable-next-line react-hooks/exhaustive-deps
+            getBarChartOptions();// eslint-disable-next-line react-hooks/exhaustive-deps
         }
-        getCountryData()
+        getCountryData()// eslint-disable-next-line react-hooks/exhaustive-deps
 
     }, [load || country])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
     const getBarChartData = () => {
         setChartData({
