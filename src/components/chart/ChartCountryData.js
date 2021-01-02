@@ -28,7 +28,7 @@ function ChartCountryData({ country }) {
         }
         getCountryData()// eslint-disable-next-line react-hooks/exhaustive-deps
 
-    }, [load || country])// eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [load || country || setCountryData])// eslint-disable-next-line react-hooks/exhaustive-deps
 
     const getBarChartData = () => {
         setChartData({

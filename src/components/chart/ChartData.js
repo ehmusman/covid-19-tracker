@@ -22,7 +22,7 @@ function ChartData({ country }) {
 
         totalDailyData()// eslint-disable-next-line react-hooks/exhaustive-deps
 
-    }, [load || country])
+    }, [load || country || setData])
     const getChartData = () => {
         setChartData({
             labels: data.date,

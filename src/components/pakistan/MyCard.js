@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import CountUp from 'react-countup';
-import { ArrowDropDownCircleOutlined } from '@material-ui/icons';
+import { ArrowDropDownIcon } from '@material-ui/icons';
 
 
 const useStyles = makeStyles({
@@ -32,7 +32,7 @@ function MyCard({
             <Card variant='outlined'>
                 <CardContent>
                     <Typography color="textPrimary" variant='h6' component='p'>
-                        {title} <ArrowDropDownCircleOutlined style={{ fontSize: '50px', cursor: 'pointer' }} />
+                        {title} <ArrowDropDownIcon style={{ fontSize: '50px', cursor: 'pointer' }} />
                     </Typography>
                     <Typography color='textSecondary' variant="h6" component="p">
                         Covid Statics in {subTitle}

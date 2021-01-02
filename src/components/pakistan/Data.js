@@ -15,7 +15,7 @@ function Data() {
         }
         fetchingData()
 
-    }, [!load])
+    }, [!load || setPakData])
     return (
         <Grid container spacing={1} className='card-container container'>
             {pakData.map((data, i) => (
